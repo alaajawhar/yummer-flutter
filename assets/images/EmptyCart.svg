@@ -1,0 +1,31 @@
+<svg width="315" height="286" viewBox="0 0 315 286" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.5">
+<circle cx="58.9103" cy="95.0349" r="10.4187" stroke="#9A4C71" stroke-width="7"/>
+<circle cx="261.289" cy="81.3642" r="15.1852" stroke="#9A4C71" stroke-width="10"/>
+<circle cx="54.9764" cy="219.183" r="15.1852" stroke="#9A4C71" stroke-width="10"/>
+<circle cx="272.781" cy="222.507" r="10.7538" stroke="#9A4C71" stroke-width="7"/>
+<circle cx="11.6866" cy="100.483" r="3.9484" stroke="#F5826E" stroke-width="3"/>
+<circle cx="306.448" cy="128.63" r="3.9484" stroke="#F5826E" stroke-width="3"/>
+<circle cx="194.631" cy="5.20714" r="3.70714" stroke="#F5826E" stroke-width="3"/>
+<circle cx="129.754" cy="266.764" r="7.39779" stroke="#F2AAA0" stroke-width="5"/>
+<circle cx="167.876" cy="51.2811" r="7.39779" stroke="#F2AAA0" stroke-width="5"/>
+<circle cx="270.178" cy="167.567" r="9.58839" fill="#E83939"/>
+<circle cx="226.025" cy="266.763" r="19.2365" fill="#FF7F56"/>
+<circle r="4.26588" transform="matrix(1 0 0 -1 58.9102 153.713)" fill="#E83939"/>
+<circle r="9.2147" transform="matrix(1 0 0 -1 217.558 50.598)" fill="#E83939"/>
+<circle r="4.26588" transform="matrix(1 0 0 -1 67.442 269.663)" fill="#E83939"/>
+<circle r="4.26588" transform="matrix(1 0 0 -1 310.714 232.495)" fill="#E83939"/>
+<circle r="4.26588" transform="matrix(1 0 0 -1 177.773 265.398)" fill="#E83939"/>
+<circle cx="111.814" cy="38.2517" r="27.8374" fill="#FF7F56"/>
+<circle cx="17.1349" cy="163.933" r="17.1149" fill="#FF7F56"/>
+</g>
+<path d="M199 191.227L157.5 166.815L199 142.626L240.5 118.214L282 142.626L240.5 166.815L199 191.227Z" fill="#CACDD6"/>
+<path d="M157.056 166.594V261.799L239.39 214.085V167.481L199 191.227L157.5 166.815L157.056 166.594Z" fill="#CACDD6"/>
+<path d="M116 191.227L157.5 166.815L116 142.626L74.5 118.214L33 142.626L74.5 166.815L116 191.227Z" fill="#CACDD6"/>
+<path d="M157.5 69.3901L199 93.8019L240.5 118.214L199 142.625L157.5 166.815L116 142.625L74.5 118.214L116 93.8019L157.5 69.3901Z" fill="#CACDD6"/>
+<path d="M116 45.2004L157.5 69.3903L116 93.8021L74.5 118.214L33 93.8021L74.5 69.3903L116 45.2004Z" fill="#CACDD6"/>
+<path d="M199 45.2004L157.5 69.3903L199 93.8021L240.5 118.214L282 93.8021L240.5 69.3903L199 45.2004Z" fill="#CACDD6"/>
+<path d="M157.056 167.259V261.799L74.5 214.085V166.815L116 191.227L157.056 167.259Z" fill="#CACDD6"/>
+<path d="M116 93.8019L74.5 118.214L116 142.625L129.316 150.393L157.5 133.97V69.3901L116 93.8019Z" fill="#CACDD6"/>
+<path d="M157.5 69.3901V133.97L185.684 150.393L199 142.625L240.5 118.214L199 93.8019L157.5 69.3901Z" fill="#CACDD6"/>
+</svg>

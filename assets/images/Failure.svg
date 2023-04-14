@@ -1,0 +1,30 @@
+<svg width="235" height="214" viewBox="0 0 235 214" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="117.139" cy="122.308" r="55.7885" stroke="#E83939" stroke-width="12"/>
+<g clip-path="url(#clip0_370_1862)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M101.48 106.514C103.042 104.952 105.575 104.952 107.137 106.514L132.912 132.289C134.474 133.851 134.474 136.384 132.912 137.946C131.35 139.508 128.817 139.508 127.255 137.946L101.48 112.171C99.9179 110.609 99.9179 108.076 101.48 106.514Z" fill="#E83939"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M101.48 137.946C99.9182 136.384 99.9182 133.851 101.48 132.289L127.255 106.514C128.818 104.952 131.35 104.952 132.912 106.514C134.474 108.076 134.474 110.609 132.912 112.171L107.137 137.946C105.575 139.508 103.042 139.508 101.48 137.946Z" fill="#E83939"/>
+</g>
+<circle cx="43.9373" cy="70.9046" r="6.88461" stroke="#9A4C71" stroke-width="7"/>
+<circle cx="194.93" cy="60.705" r="10.06" stroke="#9A4C71" stroke-width="10"/>
+<circle cx="41.0024" cy="163.53" r="10.06" stroke="#9A4C71" stroke-width="10"/>
+<circle cx="203.505" cy="166.01" r="7.13465" stroke="#9A4C71" stroke-width="7"/>
+<circle cx="8.70416" cy="74.9695" r="2.565" stroke="#F5826E" stroke-width="3"/>
+<circle cx="228.623" cy="95.9695" r="2.565" stroke="#F5826E" stroke-width="3"/>
+<circle cx="145.197" cy="3.885" r="2.385" stroke="#F5826E" stroke-width="3"/>
+<circle cx="96.7931" cy="199.03" r="4.88464" stroke="#F2AAA0" stroke-width="5"/>
+<circle cx="125.235" cy="38.2604" r="4.88464" stroke="#F2AAA0" stroke-width="5"/>
+<circle cx="201.562" cy="125.02" r="7.1538" fill="#E83939"/>
+<circle cx="168.62" cy="199.03" r="14.3522" fill="#FF7F56"/>
+<circle r="3.18273" transform="matrix(1 0 0 -1 43.9374 114.683)" fill="#E83939"/>
+<circle r="6.875" transform="matrix(1 0 0 -1 162.303 37.7507)" fill="#E83939"/>
+<circle r="3.18273" transform="matrix(1 0 0 -1 50.3028 201.193)" fill="#E83939"/>
+<circle r="3.18273" transform="matrix(1 0 0 -1 231.806 173.462)" fill="#E83939"/>
+<circle r="3.18273" transform="matrix(1 0 0 -1 132.62 198.011)" fill="#E83939"/>
+<circle cx="83.4084" cy="28.5392" r="20.7692" fill="#FF7F56"/>
+<circle cx="12.7692" cy="122.309" r="12.7692" fill="#FF7F56"/>
+<defs>
+<clipPath id="clip0_370_1862">
+<rect width="48.0833" height="48.0833" fill="white" transform="translate(83.1394 122.308) rotate(-45)"/>
+</clipPath>
+</defs>
+</svg>
