@@ -59,7 +59,7 @@ class UIResources {
         ON_BOARDING_SCREEN_1),
     UITextImage(
         "Choose favorite Foods!",
-        "Qui ex aute ipsum duis. Incididunt adipisicing voluptate laborum.",
+        "Qui ex aute ipsum duisi. Incididunt adipisicing voluptate laborum.",
         ON_BOARDING_SCREEN_2),
     UITextImage(
         "Get your Order For delivery!",
