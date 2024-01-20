@@ -10,16 +10,14 @@ class EmptyCartWidget extends StatelessWidget {
     return Scaffold(
         backgroundColor: UIColors.MAIN_COLOR_GREY_LEVEL_1,
         body: Padding(
-        padding: const EdgeInsets.only(
-            top: 150, right: 40, left: 40, bottom: 40),
+        padding: const EdgeInsets.all(40),
         child: Container(
-          width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
                 UIResources.EMPTY_CART_TEXT_IMAGE.SCREEN_IMAGE,
-                height: 300,
               ),
               const SizedBox(
                 height: 40,
@@ -40,9 +38,6 @@ class EmptyCartWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     color: UIColors.TEXT_SHADOW_COLOR),
-              ),
-              const SizedBox(
-                height: 40,
               ),
             ],
           ),

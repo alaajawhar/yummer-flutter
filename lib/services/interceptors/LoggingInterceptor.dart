@@ -4,7 +4,7 @@ import 'package:logger/logger.dart';
 import 'package:pretty_json/pretty_json.dart';
 
 class LoggingInterceptor extends Interceptor {
-  Logger LOG = AppUtils.LOGGER;
+  Logger LOG = AppLogger.LOGGER;
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {

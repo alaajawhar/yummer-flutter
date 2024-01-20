@@ -10,10 +10,10 @@ class UrlConstants{
 
 
   static String _getBaseUrl(){
-    String LOCAL_HOST_BASE_URL =  'http://localhost:3000';
+    String LOCAL_HOST_BASE_URL =  'http://localhost:8081/v1';
     String SIT_BASE_URL =  'https://4548-46-152-153-159.ngrok.io';
-    String UAT_BASE_URL =  'http://localhost:3000';
-    String PROD_BASE_URL =  'http://localhost:3000';
+    String UAT_BASE_URL =  'http://localhost:8081';
+    String PROD_BASE_URL =  'http://localhost:8081';
 
     switch(ENV){
       case ENVIRONMENT.LOCAL_HOST:

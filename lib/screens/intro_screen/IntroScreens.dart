@@ -35,7 +35,7 @@ class _IntroScreensState extends State<IntroScreens> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: UIColors.MAIN_COLOR_GREY_LEVEL_1,
-      appBar: BackTitleAppBar.create(false, '',[skipButton()], context),
+      appBar: BackTitleAppBar.create(false, '', [skipButton()], context),
       // appBar: appBar(),
       body: Column(
         children: [
@@ -73,8 +73,7 @@ class _IntroScreensState extends State<IntroScreens> {
                           height: 40,
                         ),
                         Text(
-                          UIResources.ON_BOARDING_LIST[i]
-                              .SCREEN_DESCRIPTION,
+                          UIResources.ON_BOARDING_LIST[i].SCREEN_DESCRIPTION,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                               color: UIColors.TEXT_SHADOW_COLOR),
@@ -159,12 +158,16 @@ class _IntroScreensState extends State<IntroScreens> {
       height: 60,
       margin: const EdgeInsets.all(40),
       width: double.infinity,
-      child: FlatButton(
+      child: TextButton(
+        onPressed: () => onPressed(context, index),
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.red,
+          primary: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
         child: Text(index == totalNumberOfPages - 1 ? "LET'S START" : "NEXT"),
-        onPressed: onPressed(context, index),
-        color: Colors.red,
-        textColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
     );
   }

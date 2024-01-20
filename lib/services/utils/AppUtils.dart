@@ -51,8 +51,9 @@ class AppUtils {
       elevation: 0,
     );
 
-    Scaffold.of(context)
+    ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(snackBar);
+
   }
 }

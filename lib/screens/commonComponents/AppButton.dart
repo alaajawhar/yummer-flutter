@@ -11,12 +11,16 @@ class AppButton extends StatelessWidget {
       height: 55,
       margin: const EdgeInsets.all(3),
       width: double.infinity,
-      child: FlatButton(
-        child: Text(text),
+      child: TextButton(
         onPressed: onPress,
-        color: Colors.red,
-        textColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.red,
+          primary: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+        child: Text(text),
       ),
     );
   }

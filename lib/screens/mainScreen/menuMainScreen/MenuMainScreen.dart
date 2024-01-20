@@ -4,7 +4,6 @@ import 'package:ishop/screens/mainScreen/common/PopularItemsList.dart';
 import 'package:ishop/services/backend/OrderService.dart';
 import 'package:ishop/services/modules/StoreModule.dart';
 import 'package:ishop/services/utils/AppUtils.dart';
-import 'commons/SearchBar.dart';
 
 class MenuMainScreen extends StatefulWidget {
   const MenuMainScreen({Key? key}) : super(key: key);
@@ -25,7 +24,7 @@ class _MenuMainScreenState extends State<MenuMainScreen> {
             backgroundColor: UIColors.MAIN_COLOR_GREY_LEVEL_1,
             elevation: 0,
             title: SearchBar(),
-            bottom: appBarBottom( 'Popular Orders'),
+            bottom: appBarBottom('Popular Orders'),
           )),
       body: Container(
         padding: EdgeInsets.all(10),
@@ -49,7 +48,7 @@ class _MenuMainScreenState extends State<MenuMainScreen> {
     );
   }
 
-  PreferredSize appBarBottom(String text){
+  PreferredSize appBarBottom(String text) {
     return PreferredSize(
       preferredSize: Size.fromHeight(4),
       child: Container(
@@ -66,5 +65,4 @@ class _MenuMainScreenState extends State<MenuMainScreen> {
       ),
     );
   }
-
 }

@@ -5,19 +5,19 @@ import 'package:ishop/constants/UIColors.dart';
 import 'package:ishop/constants/UIResources.dart';
 
 class DeliverTo extends StatefulWidget {
-  String? profilePic;
+  String? profilePictureUrl;
   String? province;
   String? state;
   DeliverTo(
       {Key? key,
       required this.province,
       required this.state,
-      required this.profilePic})
+      required this.profilePictureUrl})
       : super(key: key);
 
   @override
   _DeliverToState createState() =>
-      _DeliverToState(this.province, this.state, this.profilePic);
+      _DeliverToState(this.province, this.state, this.profilePictureUrl);
 }
 
 class _DeliverToState extends State<DeliverTo> {

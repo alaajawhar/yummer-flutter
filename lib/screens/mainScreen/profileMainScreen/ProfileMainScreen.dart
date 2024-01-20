@@ -3,9 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:ishop/constants/Routes.dart';
 import 'package:ishop/constants/UIColors.dart';
 import 'package:ishop/constants/UIResources.dart';
-import 'package:ishop/services/backend/UserService.dart';
-import 'package:ishop/services/modules/UserModule.dart';
-import 'package:ishop/services/utils/AppUtils.dart';
+import 'package:logger/logger.dart';
+
+import '../../../utils/AppUtils.dart';
 
 class ProfileMainScreen extends StatefulWidget {
   const ProfileMainScreen({Key? key}) : super(key: key);
@@ -15,11 +15,10 @@ class ProfileMainScreen extends StatefulWidget {
 }
 
 class _ProfileMainScreenState extends State<ProfileMainScreen> {
-  late Future<GetProfileResponse> getProfileResponseFuture;
+  Logger LOG = AppLogger.LOGGER;
 
   @override
   void initState() {
-    getProfileResponseFuture = UserService().getProfile();
     super.initState();
   }
 
@@ -32,66 +31,14 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: UIColors.MAIN_COLOR_GREY_LEVEL_1,
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            FutureBuilder(
-              future: getProfileResponseFuture,
-              builder: (BuildContext context,
-                  AsyncSnapshot<GetProfileResponse> snapshot) {
-                return AppUtils.getWidgetFromFuture(
-                  context,
-                  snapshot,
-                  profileScreenAppBar(
-                      snapshot.data?.username, snapshot.data?.email),
-                );
-              },
-            ),
-            SizedBox(
-              height: 100,
-            ),
-            menuItemText(
-              UIResources.ORDER_HISTORY_BUTTON,
-              () {
-                Navigator.of(context).pushNamed(Routes.ORDER_HISTORY);
-              },
-            ),
-            menuItemText(
-              UIResources.PAYMENT_METHOD_BUTTON,
-              () {
-                Navigator.of(context).pushNamed(Routes.PAYMENT_METHOD);
-              },
-            ),
-            menuItemText(
-              UIResources.MY_ADDRESS_BUTTON,
-              () {
-                Navigator.of(context).pushNamed(Routes.MY_ADDRESS);
-              },
-            ),
-            menuItemText(
-              UIResources.MY_PROMO_CODES_BUTTON,
-              () {
-                Navigator.of(context).pushNamed(Routes.MY_PROMO_CODES);
-              },
-            ),
-            // menuItemText(
-            //   UIResources.MY_FAVORITES_BUTTON,
-            //   () {
-            //     Navigator.of(context).pushNamed(Routes.EDIT_PROFILE);
-            //   },
-            // ),
-            menuItemText(
-              UIResources.SIGN_OUT_BUTTON,
-              () {
-                Navigator.of(context).pushNamed(Routes.SIGN_IN);
-              },
-            ),
-          ],
-        ));
+        appBar: profileScreenAppBar('Alaa', 'alaajawhar@gmail.com',
+            'https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg'),
+        body: listMenu());
   }
 
-  PreferredSize profileScreenAppBar(String? username, String? email) {
-    const double headerHeight = 140;
+  PreferredSize profileScreenAppBar(
+      String? username, String? email, String profilePictureUrl) {
+    double headerHeight = MediaQuery.of(context).size.height * 0.2;
     return PreferredSize(
       preferredSize: Size.fromHeight(headerHeight),
       child: AppBar(
@@ -101,6 +48,7 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
           centerTitle: false,
           title: Container(
             height: 50,
+            width: double.infinity,
             padding: EdgeInsets.only(left: 20),
             child: Text('My Profile',
                 style: TextStyle(
@@ -124,41 +72,44 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
                 bottom: -95,
                 left: 0,
                 right: 0,
-                child: profileContainer(username, email),
+                child: profileContainer(username, email, profilePictureUrl),
               ),
             ],
           )),
     );
   }
 
-  Widget profileContainer(String? username, String? email) {
+  Widget profileContainer(
+      String? username, String? email, String profilePictureUrl) {
     return Container(
-      height: 120,
-      margin: const EdgeInsets.all(30),
-      width: double.infinity,
-      alignment: Alignment.center,
-      child: FlatButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(Routes.EDIT_PROFILE);
-        },
-        color: Colors.white,
-        textColor: UIColors.TEXT_BLACK,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        child: Container(
-          padding: const EdgeInsets.only(left: 5),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              profileImage(
-                  'https://media-exp1.licdn.com/dms/image/C4E03AQEeiBxcht7eLw/profile-displayphoto-shrink_800_800/0/1578914407055?e=1651104000&v=beta&t=bDIk41w8gNFgZ1v8cCqqVmp1fx2yL6lgD-WsrKn1Ptg'),
-              SizedBox(width: 20),
-              usernameEmailWidget(username, email),
-              editPenWidget()
-            ],
+        height: 120,
+        margin: const EdgeInsets.all(30),
+        width: double.infinity,
+        alignment: Alignment.center,
+        child: TextButton(
+          onPressed: () {
+            LOG.i("TextButton has been pressed");
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.white,
+            primary: UIColors.TEXT_BLACK,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
-        ),
-      ),
-    );
+          child: Container(
+            padding: const EdgeInsets.only(left: 5),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                profileImage(profilePictureUrl),
+                SizedBox(width: 20),
+                usernameEmailWidget(username, email),
+                editPenWidget()
+              ],
+            ),
+          ),
+        ));
   }
 
   Container profileImage(String image) {
@@ -208,10 +159,13 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
   }
 
   Widget editPenWidget() {
-    return Icon(
-      Icons.edit,
-      color: Colors.black,
-      size: 15,
+    return Padding(
+      padding: EdgeInsets.all(10),
+      child: Icon(
+        Icons.edit,
+        color: Colors.black,
+        size: 15,
+      ),
     );
   }
 
@@ -219,11 +173,14 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
       ProfileButton profileButton, VoidCallback callbackFunction) {
     return Column(
       children: [
-        FlatButton(
-          color: UIColors.MAIN_COLOR_GREY_LEVEL_1,
-          textColor: UIColors.TEXT_BLACK,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: UIColors.MAIN_COLOR_GREY_LEVEL_1,
+            primary: UIColors.TEXT_BLACK,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
           onPressed: callbackFunction,
           child: Padding(
             padding: const EdgeInsets.only(left: 5),
@@ -232,17 +189,17 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    menuItemIcon(profileButton.PREFIX_ICON),
-                    SizedBox(width: 10),
+                    menuItemIcon(profileButton.leadingIcon),
                     Expanded(
-                        child: Text(
-                      profileButton.BUTTON_TEXT,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 17,
+                      child: Text(
+                        profileButton.title,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17,
+                        ),
                       ),
-                    )),
+                    ),
                     nextArrow()
                   ],
                 ),
@@ -279,5 +236,30 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
         onPressed: () => {Navigator.of(context).pushNamed(Routes.EDIT_PROFILE)},
       ),
     );
+  }
+
+  Widget listMenu() {
+    return ListView(
+        padding: EdgeInsets.only(top: 100),
+        children: ListTile.divideTiles(
+            color: UIColors.MAIN_COLOR_GREY_LEVEL_2,
+            tiles: ProfileButton.profileMenuItems.map((item) => ListTile(
+                  leading: SvgPicture.asset(
+                    item.leadingIcon,
+                    color: UIColors.TEXT_BLACK,
+                  ),
+                  title: Text(item.title),
+                  trailing: IconButton(
+                    icon: SvgPicture.asset(
+                      UIResources.NEXT_ARROW_ICON,
+                      color: UIColors.MAIN_COLOR_GREY_LEVEL_2,
+                    ),
+                    onPressed: () {},
+                  ),
+                  onTap: () {
+                    LOG.i('PRESSED');
+                    Navigator.of(context).pushNamed(item.routeId);
+                  },
+                ))).toList());
   }
 }
